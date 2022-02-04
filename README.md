@@ -10,7 +10,7 @@
         <img alt="License" src="https://img.shields.io/github/stars/BitesPotatoBacks/M1-gpufreq.svg"/>
     </a> -->
     <a href="https://github.com/BitesPotatoBacks/M1-gpufreq/releases">
-        <img alt="Releases" src="https://img.shields.io/github/release/BitesPotatoBacks/M1-gpufreq.svg"/>
+        <img alt="Releases" src="https://img.shields.io/github/v/release/BitesPotatoBacks/M1-gpufreq.svg"/>
     </a>
         <a href="https://cash.app/$bitespotatobacks">
         <img alt="License" src="https://img.shields.io/badge/donate-Cash_App-default.svg"/>
