@@ -32,7 +32,7 @@ xattr -cr ./M1-gpufreq
 Now you can simply run `./M1-gpufreq`.
 
 ### Example:
-Here is an example running `./M1-gpufreq -l6` on an M1 Mac Mini during a Geekbench Compute run:
+Here is an example running `./M1-gpufreq -l6 -i1` on an M1 Mac Mini during a Geekbench Compute run:
 ```
 Name      Type      Max Freq     Active Freq    Freq %
 
@@ -55,6 +55,7 @@ Available command line options are:
 
 ## Bugs and Issues
 ### Known Problems:
+- Sampling interval is currently broken for some reason... run script with option `-i1` for now
 - Support for M1 Pro/Max is unofficial
 
 If any other bugs or issues are identified, please let me know!
