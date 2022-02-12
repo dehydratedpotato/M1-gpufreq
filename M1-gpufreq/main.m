@@ -28,13 +28,14 @@
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-#define ERROR(error)    { printf("%s: %s\n", "M1-gpufreq", error); exit(-1); }
+#define VERSION         "1.1.0"
+#define ERROR(ERR)      { printf("\e[1mM1-gpufreq\e[0m:\033[0;31m error:\033[0m %s\n", ERR); exit(-1); }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 struct options
 {
-    int interval;
+    float interval;
     int loop;
 };
 
@@ -97,11 +98,12 @@ int main(int argc, char * argv[])
             case 'i':   options.interval = atoi(optarg);
                         break;
                 
-            case 'v':   printf("%s: version 1.0.0\n", "M1-gpufreq");
+            case 'v':   printf("\e[1mM1-gpufreq\e[0m:: version %s\n", VERSION);
                         return 0;
                         break;
                 
-            case 'h':   printf("Usage: %s [-livh]\n", "M1-gpufreq");
+            case 'h':   printf("Usage:\n");
+                        printf("./M1-gpufreq [options]");
                         printf("    -l <value> : loop output (0 = infinite)\n");
                         printf("    -i <value> : set sampling interval (may effect accuracy)\n");
                         printf("    -v         : print version number\n");
@@ -243,7 +245,7 @@ float return_gpu_active_freq(int interval)
     NSArray * gpu_nominal_freqs = get_gpu_nominal_freqs();
     
     NSMutableArray * first_sample = get_gpu_states();
-    sleep(interval);
+    [NSThread sleepForTimeInterval:interval];
     NSMutableArray * last_sample = get_gpu_states();
     
     for (int i = 0; i < [first_sample count]; i++)
