@@ -23,6 +23,16 @@
 //
 //    Building:    clang main.m -fobjc-arc -arch arm64 -o M1-gpufreq -lIOReport -framework Foundation
 //
+//    Example Output:
+//
+//    Name      Type      Max Freq     Active Freq    Freq %
+//
+//    GPU      Complex   1278.00 MHz     43.59 MHz     3.41%
+//    GPU      Complex   1278.00 MHz   1153.91 MHz    90.29%
+//    GPU      Complex   1278.00 MHz   1263.43 MHz    98.86%
+//    GPU      Complex   1278.00 MHz    837.17 MHz    65.51%
+//    GPU      Complex   1278.00 MHz     39.89 MHz     3.12%
+//    GPU      Complex   1278.00 MHz   1235.26 MHz    96.66%
 
 #include <Foundation/Foundation.h>
 
@@ -86,7 +96,7 @@ int main(int argc, char * argv[])
     int             counterLooper = 0;
     
     options.loop        = NAN;
-    options.interval    = 1;
+    options.interval    = 0.8;
     
     while((option = getopt(argc, argv, "i:l:vh")) != -1)
     {
@@ -111,6 +121,11 @@ int main(int argc, char * argv[])
                         return 0;
                         break;
         }
+    }
+    
+    if (options.interval < 0)
+    {
+        ERROR("sampling interval can not be a negative");
     }
     
     if (isnan(options.loop))
