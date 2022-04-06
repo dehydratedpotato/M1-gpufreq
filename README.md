@@ -19,8 +19,11 @@
     <br>
 </p>
 
+# ⚠️ Notice ⚠️
+This project is now obsolete as of the current release. Please visit [https://github.com/BitesPotatoBacks/SFMRM](https://github.com/BitesPotatoBacks/SFMRM) for the latest iteration.
+
 ## What It Does and How It Works
-This project is designed to get the current frequency (or clock speed) of your Apple M1 GPU, without requiring `sudo` or a kernel extension. This near-impossible feat is achieved in a similar manner to how my [osx-cpufreq](https://github.com/BitesPotatoBacks/osx-cpufreq) project works, by accessing performance state information from `IOReport` and performing some calculations based on them during a specified time interval (default 1 second).
+This project is designed to get the current frequency (or clock speed) of your Apple M1 GPU, without requiring `sudo` or a kernel extension. This near-impossible feat is achieved by accessing performance state information from `IOReport` and performing some calculations based on them during a specified time interval (default 1 second).
 
 ## Usage
 ### Preparation:
